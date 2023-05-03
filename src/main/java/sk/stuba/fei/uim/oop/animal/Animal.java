@@ -5,10 +5,11 @@ import lombok.NoArgsConstructor;
 import sk.stuba.fei.uim.oop.person.Person;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 public class Animal {
 
     @Id
@@ -19,11 +20,16 @@ public class Animal {
 
     private String name;
 
-    @OneToOne
-    private Person person;
+    @OneToMany
+    private List<Person> person;
 
     public Animal(String species, String name) {
+        this();
         this.species = species;
         this.name = name;
+    }
+
+    public Animal() {
+        this.person = new ArrayList<>();
     }
 }
