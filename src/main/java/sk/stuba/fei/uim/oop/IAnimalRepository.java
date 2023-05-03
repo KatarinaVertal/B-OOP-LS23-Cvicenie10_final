@@ -7,5 +7,5 @@ import java.util.List;
 public interface IAnimalRepository extends JpaRepository<Animal, Long> {
     List<Animal> findAll();
 
-
+    List<Animal> findAllByName(String name);
 }
