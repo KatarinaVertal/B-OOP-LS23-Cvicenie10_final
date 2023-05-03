@@ -20,6 +20,7 @@ public class AnimalService implements IAnimalService {
         System.out.println(a2);
         this.repository.save(a2);
         System.out.println(a2);
+        this.repository.delete(a2);
     }
 
     public List<Animal> getAll() {
