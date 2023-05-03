@@ -17,6 +17,6 @@ public class AnimalResponse {
         this.id = animal.getId();
         this.species = animal.getSpecies();
         this.name = animal.getName();
-        this.person = animal.getPerson().stream().map(PersonResponse::new).collect(Collectors.toList());
+        this.person = animal.getPayments().stream().map(payment -> new PersonResponse(payment.getPerson())).collect(Collectors.toList());
     }
 }
