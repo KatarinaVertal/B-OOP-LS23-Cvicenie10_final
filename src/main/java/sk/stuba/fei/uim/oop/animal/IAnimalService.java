@@ -1,6 +1,5 @@
-package sk.stuba.fei.uim.oop;
+package sk.stuba.fei.uim.oop.animal;
 
-import java.util.Arrays;
 import java.util.List;
 
 public interface IAnimalService {
@@ -9,4 +8,6 @@ public interface IAnimalService {
     Animal createAnimal(AnimalRequest body);
 
     List<Animal> getByName(String name);
+
+    Animal addPersonToAnimal(Long id, Long personId);
 }

@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop;
+package sk.stuba.fei.uim.oop.animal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,5 +28,10 @@ public class AnimalController {
     @GetMapping("/{name}")
     public List<AnimalResponse> getByName(@PathVariable("name") String name) {
         return this.animalService.getByName(name).stream().map(AnimalResponse::new).collect(Collectors.toList());
+    }
+
+    @PutMapping("/{id}")
+    public AnimalResponse addPersonToAnimal(@PathVariable("id") Long id, @RequestParam("person") Long personId) {
+        return new AnimalResponse(this.animalService.addPersonToAnimal(id, personId));
     }
 }
